@@ -1,13 +1,13 @@
 import express from 'express';
 
-const app = express()
+import routes from './routes';
 
-app.get('/', (request, response)=>{
-  return response.json({
-    ok:true
-  })
-})
+const app = express();
 
-app.listen(3333, ()=>{
+app.use(express.json());
+
+app.use(routes);
+
+app.listen(3333, () => {
   console.log('Server on listening...🚀');
-})
+});
